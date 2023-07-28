@@ -16,7 +16,7 @@ const UserSchema=  new mongoose.Schema({
     
 });
 
-UserSchema.plugin(uniqueValidator,{message:'User exists' });
+// UserSchema.plugin(uniqueValidator,{message:'User exists' });
 
 
 

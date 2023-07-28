@@ -89,14 +89,6 @@ router.post('/checkLogIn',async(req,res)=>{
        else{
         res.send("Username does not exist");
        }
-     
-      
-        
-        
-            
-        
-    
-        
     } catch (error) {
         console.log(error.message);
         
