@@ -45,17 +45,27 @@ router.post('/',async(req,res)=>{
     
 
     try {
+        
+        const findOneEmail = await collection.findOne({ name: req.body.username })
+        console.log(findOneEmail)
+        if (findOneEmail) {
+            throw Error("User aldready exists");
+        }
+          
+        
         const userData=new collection({
             name:req.body.username,
             password:req.body.password1
         })
         const regUser= await userData.save();
-        
-        res.redirect('/');
+        res.status(200).json({message:"user added"}) 
+        // res.redirect('/');
+
         
         
     } catch (error) {
-        res.status(400).send(error);
+        console.log(error.message)
+        res.status(409).json({message:error.message });
         
     }
     
