@@ -1,0 +1,62 @@
+<html lang="en">
+  <head>
+    <title>FlexChat</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="stylesheet" href="http://localhost:3000/scss" />
+  </head>
+  <body>
+    <div class="content">
+        <h2 class="logo1">Create New Account</h2>
+      <div class="flex-div">
+        <!-- <h2>Sign-up</h2> -->
+        
+        <!-- <div class="name-content">
+          
+          <h2 class="logo">SIGN-UP</h2> -->
+          <!-- <p>Connect with friends and the world around you on FlexChat.</p> -->
+        <!-- </div>  -->
+        
+          <form onsubmit="return validateForm()" action="/" method="post" id="myForm">
+            
+            <input type="text" placeholder="Username" id="username" name="username" required />
+            <input type="password" id="password1" name="password1" placeholder="Password" required/>
+            <input type="password" id="password2" name="password2" placeholder="Confirm Password" required>
+            <button type="submit" class="login" onclick="validateForm()">Sign Up</button>
+            <!-- <a href="#">Forgot Password ?</a> -->
+            <!-- <hr> -->
+            <!-- <button class="create-account">Create New Account</button> -->
+          </form>
+          <script>
+            function validateForm(){
+                var username = document.getElementById("username");
+                var un = username.value;
+              var password1 = document.getElementById("password1");
+              var ps1 = password1.value;
+              var password2 = document.getElementById("password2");
+              var ps2 = password2.value;
+        
+              if(ps1 != ps2){
+                alert("Passwords do not match");
+                return false;
+              }else{
+        
+                return true;
+              }
+            }
+        
+            const form = document.getElementById('myForm');
+
+            
+
+            // function isUser(){
+            //     var username=document.getElementById("username");
+
+            // }
+          </script>
+      </div>
+    </div>
+  </body>
+</html>

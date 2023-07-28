@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat App</title>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.2/socket.io.js" integrity="sha512-VJ6+sp2E5rFQk05caiXXzQd1wBABpjEj1r5kMiLmGAAgwPItw1YpqsCCBtq8Yr1x6C49/mTpRdXtq8O2RcZhlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <!-- <script src="socket.io/socket.io.js"></script> -->
+    <script src="chatDb2.js"></script>
+	  <script src="chat-page.js"></script>
+    <style>
+    .container {
+    display: flex;
+    height: 100vh;
+}
+
+.user-list {
+    width: 300px;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+.message-interface {
+    flex: 1;
+    padding: 20px;
+}
+.message-interface {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.chat-input {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.chat-input input[type="text"] {
+    flex: 1;
+    padding: 10px;
+}
+
+.chat-input button {
+    padding: 10px 15px;
+    margin-left: 10px;
+}
+.user-list {
+    width: 300px;
+    background-color: #f1f1f1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.add-user input[type="text"] {
+    flex: 1;
+    padding: 5px;
+}
+
+.add-user button {
+    padding: 5px 10px;
+    margin-left: 10px;
+}
+
+.usernames {
+    overflow-y: auto;
+}
+.usernames {
+    overflow-y: auto;
+}
+
+.usernames ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.usernames li {
+    display: block;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.usernames li:hover {
+    background-color: #f1f1f1;
+}
+	.chat-message {
+  display: flex;
+  padding: 10px;
+  margin: 5px 10px;
+  border-radius: 10px;
+  align-items: flex-start;
+}
+
+ .user-message {
+  justify-content: flex-end;
+} 
+
+.server-message {
+  justify-content: flex-start;
+ } 
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="user-list">
+            <!-- User list goes here -->
+            <div class="add-user">
+        		<input type="text" id="user-input-field" placeholder="Enter username" />
+        		<button id="add-button" onclick="addToList()">Add</button>
+    		</div>
+    		<div class="usernames">
+        		<!-- Usernames go here -->
+        		<ul id="user-list">
+        			<!-- Usernames go here -->
+        			
+    			</ul>
+    		</div>
+        </div>
+        
+        
+        
+        <div class="message-interface">
+            <h1 id="username">username</h1>
+            <!-- Messaging interface goes here -->
+			<div class="chat-messages" id="message-list">
+        	<!-- Chat messages go here -->
+    		</div>
+    		<div class="chat-input">
+        		<input type="text" id="message-input" placeholder="Type a message..." />
+       			<button onclick="sendMessage()" id="send-button">Send</button>
+    		</div>
+        </div>
+   	</div>
+    <script>var socket=io(); </script>
+</body>
+</html>
+
